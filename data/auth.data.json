@@ -1,0 +1,16 @@
+{
+  "signup": {
+    "business": {
+      "companyEmail": "test@gmail.com",
+      "firstName": "Test",
+      "lastName": "User",
+      "password": "TestPassword123!"
+    },
+    "freemium": {
+      "email": "test@gmail.com"
+    }
+  },
+  "login": {
+    "email": "test@gmail.com"
+  }
+}
