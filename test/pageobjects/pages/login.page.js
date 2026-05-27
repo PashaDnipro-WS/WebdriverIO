@@ -1,37 +1,47 @@
-import Page from './page.js';
+import { $, expect, browser } from '@wdio/globals'
+import Page from './page.js'
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class LoginPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    get inputUsername() {
-        return $('#username');
+    get emailInput() {
+        return $('input[name="email"]')
     }
 
-    get inputPassword() {
-        return $('#password');
+    get sendSignInLinkButton() {
+        return $('//button[text()="Send me sign-in link"]')
     }
 
-    get btnSubmit() {
-        return $('button[type="submit"]');
+    get successToast() {
+        return $('*=Please check your inbox for a sign-in link.')
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-    async login(username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+    get verificationError() {
+        return $('//*[contains(text(), "Security verification failed")]')
     }
 
     open() {
         return browser.url('https://portal.telnyx.com/#/login/sign-in')
     }
+
+    async fillEmail(email) {
+        await this.emailInput.setValue(email)
+    }
+
+    async submitMagicLinkLogin() {
+        await this.sendSignInLinkButton.click()
+    }
+
+    async loginWithMagicLink(email) {
+        await this.fillEmail(email)
+        await this.submitMagicLinkLogin()
+    }
+
+    async expectSuccessToastIsDisplayed() {
+        await expect(this.successToast).toBeDisplayed()
+    }
+
+    async expectVerificationErrorIsDisplayed() {
+        await expect(this.verificationError).toBeDisplayed()
+    }
 }
 
-export default new LoginPage();
+export default new LoginPage()

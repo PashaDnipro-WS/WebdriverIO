@@ -1,16 +1,18 @@
 {
-  "signup": {
-    "business": {
-      "companyEmail": "test@gmail.com",
-      "firstName": "Test",
-      "lastName": "User",
-      "password": "TestPassword123!"
+    "signup": {
+        "business": {
+            "companyEmail": "test@gmail.com",
+            "firstName": "Test",
+            "lastName": "User",
+            "password": "TestPassword123!",
+            "promoCode": "random",
+            "errorMsg_1": "That email and password combination is not valid, or your browser could not be authenticated. Please try again."
+        },
+        "freemium": {
+            "email": "test@gmail.com"
+        }
     },
-    "freemium": {
-      "email": "test@gmail.com"
+    "login": {
+        "email": "luckyautomationuser@gmail.com"
     }
-  },
-  "login": {
-    "email": "test@gmail.com"
-  }
 }
