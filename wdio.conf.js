@@ -1,4 +1,11 @@
 export const config = {
+
+    suites: {
+        regression: [
+            './test/specs/**/*.spec.js'
+        ], // npx wdio run wdio.conf.js --suite regression
+    },
+
     //
     // ====================
     // Runner Configuration
@@ -110,7 +117,7 @@ export const config = {
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
     framework: 'mocha',
-    
+
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
