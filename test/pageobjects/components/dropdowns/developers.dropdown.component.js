@@ -33,6 +33,10 @@ class DevelopersDropdown {
             await this.expectCardHoverWorks(card)
         }
     }
+
+    async openDevDocs() {
+        await this.devDocsCard.click()
+    }
 }
 
 export default new DevelopersDropdown()

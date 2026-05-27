@@ -63,7 +63,7 @@ export const config = {
         'goog:chromeOptions': {
             args: [
                 '--lang=en-US',
-                'window-size=1440,1000'
+                'window-size=1920,1240'
             ]
         } 
     }],

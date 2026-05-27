@@ -1,7 +1,4 @@
-import { $, expect, browser } from '@wdio/globals'
-import Page from './page.js'
-
-class LoginPage extends Page {
+class LoginPage{
     get emailInput() {
         return $('input[name="email"]')
     }
