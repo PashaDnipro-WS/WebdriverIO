@@ -7,7 +7,7 @@ export const config = {
         '../test/specs/**/*.spec.js'
     ],
 
-    maxInstances: 10,
+    maxInstances: process.env.CI ? 1 : 2,
 
     capabilities: [
         {
@@ -16,6 +16,7 @@ export const config = {
                 args: [
                     '--width=1920',
                     '--height=1240',
+                    ...(process.env.CI ? ['--headless'] : []),
                 ],
                 prefs: {
                     'intl.accept_languages': 'en-US',

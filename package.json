@@ -21,6 +21,10 @@
     "test:firefox:spec": "wdio run ./config/wdio.firefox.conf.js --spec",
     "allure:generate": "allure generate allure-results --clean",
     "allure:open": "allure open",
-    "allure:report": "allure generate allure-results --clean && allure open"
+    "allure:report": "allure generate allure-results --clean && allure open",
+    "docker:build": "docker compose build",
+    "docker:chrome": "docker compose run --rm chrome",
+    "docker:firefox": "docker compose run --rm firefox",
+    "docker:test": "docker compose run --rm chrome && docker compose run --rm firefox"
   }
 }

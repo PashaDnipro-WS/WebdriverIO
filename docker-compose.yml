@@ -1,0 +1,30 @@
+services:
+  chrome:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.chrome
+    command: npm run test:chrome
+    environment:
+      BASE_URL: https://telnyx.com
+      PORTAL_URL: https://portal.telnyx.com
+      DEVELOPERS_URL: https://developers.telnyx.com
+      SETI_URL: https://seti.telnyx.com
+      NODE_ENV: prod
+      CI: true
+    volumes:
+      - ./allure-results:/app/allure-results
+
+  firefox:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.firefox
+    command: npm run test:firefox
+    environment:
+      BASE_URL: https://telnyx.com
+      PORTAL_URL: https://portal.telnyx.com
+      DEVELOPERS_URL: https://developers.telnyx.com
+      SETI_URL: https://seti.telnyx.com
+      NODE_ENV: prod
+      CI: true
+    volumes:
+      - ./allure-results:/app/allure-results

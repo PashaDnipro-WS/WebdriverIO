@@ -7,7 +7,7 @@ export const config = {
         '../test/specs/**/*.spec.js'
     ],
 
-    maxInstances: 10,
+    maxInstances: process.env.CI ? 1 : 3,
 
     capabilities: [
         {
@@ -19,6 +19,9 @@ export const config = {
                     '--disable-gpu',
                     '--no-sandbox',
                     '--disable-dev-shm-usage',
+                    '--disable-extensions',
+                    '--disable-infobars',
+                    ...(process.env.CI ? ['--headless=new'] : []),
                 ],
             },
         },

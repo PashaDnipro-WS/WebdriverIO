@@ -20,31 +20,44 @@ jobs:
       DEVELOPERS_URL: https://developers.telnyx.com
       SETI_URL: https://seti.telnyx.com
       NODE_ENV: prod
+      CI: true
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Install project dependencies
-        run: npm ci
+      - name: Build Docker images
+        run: docker compose build
 
       - name: Prepare Allure directories
         run: |
           rm -rf allure-results allure-report
           mkdir -p allure-results
+          chmod -R 777 allure-results
 
-      - name: Run Chrome tests
-        run: npm run test:chrome
+      - name: Run Chrome tests in Docker
+        run: docker compose run --rm chrome
         continue-on-error: true
 
-      - name: Run Firefox tests
-        run: npm run test:firefox
+      - name: Run Firefox tests in Docker
+        run: docker compose run --rm firefox
         continue-on-error: true
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Add Allure environment info
+        if: always()
+        run: |
+          echo "Browser=Chrome and Firefox" >> allure-results/environment.properties
+          echo "Base URL=$BASE_URL" >> allure-results/environment.properties
+          echo "Portal URL=$PORTAL_URL" >> allure-results/environment.properties
+          echo "Developers URL=$DEVELOPERS_URL" >> allure-results/environment.properties
+          echo "SETI URL=$SETI_URL" >> allure-results/environment.properties
+          echo "Node ENV=$NODE_ENV" >> allure-results/environment.properties
+          echo "CI=$CI" >> allure-results/environment.properties
+          echo "GitHub Branch=${GITHUB_REF_NAME}" >> allure-results/environment.properties
+          echo "GitHub Run ID=${GITHUB_RUN_ID}" >> allure-results/environment.properties
 
       - name: Generate Allure report
         if: always()
