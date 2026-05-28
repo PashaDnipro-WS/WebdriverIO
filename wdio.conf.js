@@ -27,10 +27,24 @@ export const config = {
 
     framework: 'mocha',
 
-    reporters: ['spec'],
+    reporters: [
+        'spec',
+
+        ['allure', {
+            outputDir: './allure-results',
+            disableWebdriverStepsReporting: true,
+            disableWebdriverScreenshotsReporting: false,
+        }],
+    ],
 
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000
+    },
+
+    afterTest: async function (_test, _context, { error }) {
+        if (error) {
+            await browser.takeScreenshot()
+        }
     },
 }
