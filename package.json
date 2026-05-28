@@ -17,6 +17,8 @@
     "test:local": "cross-env NODE_ENV=local BASE_URL=https://telnyx.com wdio run ./wdio.conf.js",
     "test:chrome": "wdio run ./config/wdio.chrome.conf.js",
     "test:firefox": "wdio run ./config/wdio.firefox.conf.js",
+    "test:chrome:spec": "wdio run ./config/wdio.chrome.conf.js --spec",
+    "test:firefox:spec": "wdio run ./config/wdio.firefox.conf.js --spec",
     "allure:generate": "allure generate allure-results --clean",
     "allure:open": "allure open",
     "allure:report": "allure generate allure-results --clean && allure open"
