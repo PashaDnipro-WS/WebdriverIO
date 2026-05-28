@@ -1,0 +1,26 @@
+import { config as baseConfig } from '../wdio.conf.js'
+
+export const config = {
+    ...baseConfig,
+
+    specs: [
+        '../test/specs/**/*.spec.js'
+    ],
+
+    maxInstances: 1,
+
+    capabilities: [
+        {
+            browserName: 'chrome',
+            'goog:chromeOptions': {
+                args: [
+                    '--lang=en-US',
+                    '--window-size=1920,1240',
+                    '--disable-gpu',
+                    '--no-sandbox',
+                    '--disable-dev-shm-usage',
+                ],
+            },
+        },
+    ],
+}

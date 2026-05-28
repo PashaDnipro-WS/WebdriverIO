@@ -48,16 +48,37 @@ class LoginPage {
 
     // toggle methods
 
+    get themeToggleInput() {
+        return $('input[type="checkbox"]')
+    }
+
+    get themeToggleButton() {
+        return $('span.MuiSwitch-root')
+    }
+
     async toggleTheme() {
-        await this.themeToggle.click()
+        await this.themeToggleButton.waitForClickable()
+        await this.themeToggleButton.click()
     }
 
     async expectThemeIsEnabled() {
-        await expect(this.themeToggle).toBeChecked()
+        await expect(this.themeToggleInput).toBeChecked()
     }
 
     async expectThemeIsDisabled() {
-        await expect(this.themeToggle).not.toBeChecked()
+        await expect(this.themeToggleInput).not.toBeChecked()
+    }
+
+    // Popup Iframe
+
+    async closeGooglePopupIfDisplayed() {
+        await browser.execute(() => {
+            const popup = document.querySelector('#credential_picker_container')
+
+            if (popup) {
+                popup.remove()
+            }
+        })
     }
 }
 

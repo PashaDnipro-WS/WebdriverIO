@@ -15,7 +15,7 @@ describe('Login', () => {
     })
 
     it('should switch theme mode', async () => {
-        await LoginPage.open()
+        await LoginPage.closeGooglePopupIfDisplayed()
 
         await LoginPage.expectThemeIsDisabled()
 

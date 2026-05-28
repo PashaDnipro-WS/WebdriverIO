@@ -12,6 +12,8 @@
   "scripts": {
     "test": "wdio run ./wdio.conf.js",
     "test:prod": "cross-env NODE_ENV=prod BASE_URL=https://telnyx.com wdio run ./wdio.conf.js",
-    "test:local": "cross-env NODE_ENV=local BASE_URL=https://telnyx.com wdio run ./wdio.conf.js"
+    "test:local": "cross-env NODE_ENV=local BASE_URL=https://telnyx.com wdio run ./wdio.conf.js",
+    "test:chrome": "wdio run ./config/wdio.chrome.conf.js",
+    "test:firefox": "wdio run ./config/wdio.firefox.conf.js"
   }
 }

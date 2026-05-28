@@ -31,22 +31,22 @@ class TemplatesPage extends Page {
 
     async selectHealthcareFilter() {
         await this.healthcareFilter.scrollIntoView()
-        await this.healthcareFilter.click()
+        await this.safeClick(this.healthcareFilter)
     }
 
     async openPaymentReminderTemplate() {
         await this.paymentReminderTemplate.scrollIntoView()
-        await this.paymentReminderTemplate.click()
+        await this.safeClick(this.paymentReminderTemplate)
     }
 
     async selectInsuranceFilter() {
         await this.insuranceFilter.scrollIntoView()
-        await this.insuranceFilter.click()
+        await this.safeClick(this.insuranceFilter)
     }
 
     async openAutomateClaimIntakeInstantlyTemplate() {
         await this.automateClaimIntakeInstantlyTemplate.scrollIntoView()
-        await this.automateClaimIntakeInstantlyTemplate.click()
+        await this.safeClick(this.automateClaimIntakeInstantlyTemplate)
     }
 }
 
