@@ -7,7 +7,7 @@ export const config = {
         '../test/specs/**/*.spec.js'
     ],
 
-    maxInstances: 1,
+    maxInstances: 10,
 
     capabilities: [
         {
