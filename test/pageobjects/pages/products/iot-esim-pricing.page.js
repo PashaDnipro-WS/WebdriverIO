@@ -47,7 +47,7 @@ class IotEsimPricingPage {
         return $('#iot-sim-savings-calculator__public-ip__-no')
     }
 
-    get costMessage() {
+    get resultMessage() {
         return $('//strong[normalize-space()="Monthly estimated costs"]')
     }
 
@@ -154,7 +154,7 @@ class IotEsimPricingPage {
     }
 
     async expectCalculationResultIsDisplayed() {
-        await expect(this.costMessage).toBeDisplayed()
+        await expect(this.resultMessage).toBeDisplayed()
     }
 }
 

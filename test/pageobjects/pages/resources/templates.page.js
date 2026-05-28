@@ -10,7 +10,7 @@ class TemplatesPage extends Page {
     }
 
     get paymentReminderTemplate() {
-        return $('//p[normalize-space()="Payment Reminder AI Voice Agent"]')
+        return $('//a[contains(@href, "/templates/payment-reminder-voice-ai")]//p[contains(text(), "Payment Reminder AI Voice Agent")]')
     }
 
     get insuranceFilter() {
@@ -18,7 +18,7 @@ class TemplatesPage extends Page {
     }
 
     get automateClaimIntakeInstantlyTemplate() {
-        return $('//p[normalize-space()="Automate claim intake instantly"]')
+        return $('//a[contains(@href, "/templates/claim-reporting-voice-ai")]//p[contains(text(), "Automate claim intake instantly")]')
     }
 
     open() {
