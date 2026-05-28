@@ -25,36 +25,40 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Docker images
-        run: docker compose build
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install project dependencies
+        run: npm ci
 
       - name: Prepare Allure directories
         run: |
           rm -rf allure-results allure-report
           mkdir -p allure-results
-          chmod -R 777 allure-results
 
       - name: Run Chrome tests
-        run: docker compose run --rm chrome
+        run: npm run test:chrome
         continue-on-error: true
 
       - name: Run Firefox tests
-        run: docker compose run --rm firefox
+        run: npm run test:firefox
         continue-on-error: true
 
-      - name: Install project dependencies
-        run: npm ci
-
       - name: Generate Allure report
+        if: always()
         run: npm run allure:generate
 
       - name: Upload Allure report artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: allure-report
 
       - name: Deploy Allure report to GitHub Pages
+        if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
