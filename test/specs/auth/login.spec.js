@@ -13,4 +13,18 @@ describe('Login', () => {
 
         await LoginPage.expectVerificationErrorIsDisplayed()
     })
+
+    it('should switch theme mode', async () => {
+        await LoginPage.open()
+
+        await LoginPage.expectThemeIsDisabled()
+
+        await LoginPage.toggleTheme()
+
+        await LoginPage.expectThemeIsEnabled()
+
+        await LoginPage.toggleTheme()
+
+        await LoginPage.expectThemeIsDisabled()
+    })
 })

@@ -1,4 +1,4 @@
-class LoginPage{
+class LoginPage {
     get emailInput() {
         return $('input[name="email"]')
     }
@@ -13,6 +13,10 @@ class LoginPage{
 
     get verificationError() {
         return $('//*[contains(text(), "Security verification failed")]')
+    }
+
+    get themeToggle() {
+        return $('input[type="checkbox"]')
     }
 
     open() {
@@ -38,6 +42,20 @@ class LoginPage{
 
     async expectVerificationErrorIsDisplayed() {
         await expect(this.verificationError).toBeDisplayed()
+    }
+
+   // toggle methods
+
+    async toggleTheme() {
+        await this.themeToggle.click()
+    }
+
+    async expectThemeIsEnabled() {
+        await expect(this.themeToggle).toBeChecked()
+    }
+
+    async expectThemeIsDisabled() {
+        await expect(this.themeToggle).not.toBeChecked()
     }
 }
 
