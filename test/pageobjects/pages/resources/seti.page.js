@@ -1,3 +1,6 @@
+import { envConfig } from '../../../../config/env.config.js'
+
+
 class SetiPage {
     get pageTitle() {
         return $('//h1[normalize-space()="Overview"]')
@@ -8,7 +11,7 @@ class SetiPage {
     }
 
     open() {
-        return browser.url('https://seti.telnyx.com/')
+        return browser.url(envConfig.setiUrl)
     }
 
     async expectPageIsDisplayed() {

@@ -1,4 +1,6 @@
-class IntegrationsPage {
+import Page from "../page"
+
+class IntegrationsPage  extends Page{
 
     get integrationsHeading() {
         return $('//h1[normalize-space()="Integrate with Voice AI Agents"]')
@@ -17,7 +19,7 @@ class IntegrationsPage {
     }
 
     open() {
-        return browser.url('https://telnyx.com/integrations')
+        return super.open('integrations')
     }
 
     async expectPageIsDisplayed() {

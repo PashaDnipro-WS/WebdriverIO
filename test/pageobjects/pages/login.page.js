@@ -1,3 +1,5 @@
+import { envConfig } from '../../../config/env.config.js'
+
 class LoginPage {
     get emailInput() {
         return $('input[name="email"]')
@@ -20,7 +22,7 @@ class LoginPage {
     }
 
     open() {
-        return browser.url('https://portal.telnyx.com/#/login/sign-in')
+        return browser.url(`${envConfig.portalUrl}/#/login/sign-in`)
     }
 
     async fillEmail(email) {
@@ -44,7 +46,7 @@ class LoginPage {
         await expect(this.verificationError).toBeDisplayed()
     }
 
-   // toggle methods
+    // toggle methods
 
     async toggleTheme() {
         await this.themeToggle.click()

@@ -1,3 +1,5 @@
+import { envConfig } from '../../../../config/env.config.js'
+
 class DevDocsPage {
     get aiMenuButton() {
         return $('//button[contains(., "AI")]')
@@ -16,7 +18,7 @@ class DevDocsPage {
     }
 
     open() {
-        return browser.url('https://developers.telnyx.com/docs/overview')
+        return browser.url(`${envConfig.developersUrl}/docs/overview`)
     }
 
     async expectPageIsDisplayed() {
