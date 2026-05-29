@@ -5,6 +5,7 @@ describe('AI Templates', () => {
     beforeEach(async () => {
         await TemplatesPage.open()
         await TemplatesPage.expectPageIsDisplayed()
+        await TemplatesPage.cookies.acceptCookies()
     })
 
     it('should open Payment Reminder AI Voice Agent from Healthcare templates', async () => {

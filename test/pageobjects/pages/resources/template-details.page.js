@@ -1,6 +1,6 @@
 class TemplateDetailsPage {
     get launchHeading() {
-        return $('//h2[normalize-space()="What this AI voice agent does"]')
+        return $('//h2[normalize-space()="What this voice AI agent does"]')
     }
 
     get progressBar() {
@@ -12,6 +12,7 @@ class TemplateDetailsPage {
     }
 
     async expectPageIsDisplayed() {
+        await  this.launchHeading.scrollIntoView()
         await expect(this.launchHeading).toBeDisplayed()
     }
 

@@ -1,16 +1,20 @@
 import Page from '../page.js'
+import CookiesComponent from '../../components/cookies.component.js'
 
 class TemplatesPage extends Page {
+
+    cookies = CookiesComponent
+
     get pageTitle() {
         return $('//h1[normalize-space()="Browse all Voice AI Assistant templates"]')
     }
 
     get healthcareFilter() {
-        return $('//button[normalize-space()="healthcare"]')
+        return $('//div[@role="button" and normalize-space()="healthcare"]')
     }
 
     get paymentReminderTemplate() {
-        return $('//a[contains(@href, "/templates/payment-reminder-voice-ai")]//p[contains(text(), "Payment Reminder AI Voice Agent")]')
+        return $('//a[contains(@href, "/templates/payment-reminder-voice-ai")]')
     }
 
     get insuranceFilter() {
@@ -18,7 +22,7 @@ class TemplatesPage extends Page {
     }
 
     get automateClaimIntakeInstantlyTemplate() {
-        return $('//a[contains(@href, "/templates/claim-reporting-voice-ai")]//p[contains(text(), "Automate claim intake instantly")]')
+        return $('//a[contains(@href, "/templates/claim-reporting-voice-ai")]//p[contains(text(), "Claim Reporting Voice AI Agent")]')
     }
 
     open() {
