@@ -13,6 +13,7 @@ services:
       CI: true
     volumes:
       - ./allure-results:/app/allure-results
+      - ./videos:/app/videos
 
   firefox:
     build:
@@ -28,3 +29,4 @@ services:
       CI: true
     volumes:
       - ./allure-results:/app/allure-results
+      - ./videos:/app/videos

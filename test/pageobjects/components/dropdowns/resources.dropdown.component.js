@@ -37,12 +37,21 @@ class ResourcesDropdown {
     }
 
     async expectCardHoverWorks(card) {
-        await card.moveTo()
+        await card.waitForDisplayed({ timeout: 5000 })
+
+        await card.scrollIntoView({
+            block: 'center',
+            inline: 'center'
+        })
 
         const learnMoreLink = await card.$('p=Learn more')
 
-        await expect(card).toBeDisplayed()
-        await expect(learnMoreLink).toBeDisplayed()
+        await card.moveTo()
+
+        await learnMoreLink.waitForDisplayed({
+            timeout: 5000,
+            timeoutMsg: 'Learn more link was not displayed after card hover'
+        })
     }
 
     async expectAllCardsHoverWorks() {

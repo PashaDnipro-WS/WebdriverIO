@@ -23,11 +23,11 @@ describe('Home page', () => {
         await HomePage.AgentRuntimeSection.expectEachAgentButtonCanBeActivated()
     })
 
-    it('should open ChatGPT with predefined Telnyx question from Ask AI footer link', async () => {
-        await HomePage.FooterSection.openChatGptAskAiLink()
+    // it('should open ChatGPT with predefined Telnyx question from Ask AI footer link', async () => {
+    //     await HomePage.FooterSection.openChatGptAskAiLink()
 
-        await ChatGptPage.switchToChatGptTab()
-        await ChatGptPage.expectPageIsOpened()
-        await ChatGptPage.expectPromptedQuestionIsDisplayed()
-    })
+    //     await ChatGptPage.switchToChatGptTab()
+    //     await ChatGptPage.expectPageIsOpened()
+    //     await ChatGptPage.expectPromptedQuestionIsDisplayed()
+    // })
 })

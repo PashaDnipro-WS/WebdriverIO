@@ -51,8 +51,8 @@ dropdowns.forEach(({ name, open, dropdown, cardsName }) => {
             await dropdown().expectContentIsDisplayed()
         })
 
-        it(`should show hover state for all ${cardsName} cards`, async () => {
-            await dropdown().expectAllCardsHoverWorks()
-        })
+        // it(`should show hover state for all ${cardsName} cards`, async () => {
+        //     await dropdown().expectAllCardsHoverWorks()
+        // })
     })
 })

@@ -9,7 +9,9 @@
     "@wdio/spec-reporter": "^9.27.2",
     "allure-commandline": "^2.42.0",
     "cross-env": "^10.1.0",
-    "dotenv": "^17.4.2"
+    "dotenv": "^17.4.2",
+    "rimraf": "^6.1.3",
+    "wdio-video-reporter": "^6.2.0"
   },
   "scripts": {
     "test": "wdio run ./wdio.conf.js",
@@ -19,6 +21,7 @@
     "test:firefox": "wdio run ./config/wdio.firefox.conf.js",
     "test:chrome:spec": "wdio run ./config/wdio.chrome.conf.js --spec",
     "test:firefox:spec": "wdio run ./config/wdio.firefox.conf.js --spec",
+    "allure:clean": "rimraf allure-results allure-report",
     "allure:generate": "allure generate allure-results --clean",
     "allure:open": "allure open",
     "allure:report": "allure generate allure-results --clean && allure open",

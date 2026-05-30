@@ -1,3 +1,5 @@
+import Video from 'wdio-video-reporter'
+
 export const config = {
     suites: {
         regression: [
@@ -33,13 +35,23 @@ export const config = {
         ['allure', {
             outputDir: './allure-results',
             disableWebdriverStepsReporting: true,
-            disableWebdriverScreenshotsReporting: false,
+            disableWebdriverScreenshotsReporting: false
         }],
+
+        [Video, {
+            saveAllVideos: false,
+            videoRenderTimeout: 30000,
+            outputDir: './videos',
+        }]
     ],
 
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000
+    },
+
+    before: async () => {
+        await browser.setWindowSize(1920, 1240)
     },
 
     afterTest: async function (_test, _context, { error }) {
