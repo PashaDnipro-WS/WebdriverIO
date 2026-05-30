@@ -1,5 +1,3 @@
-import Video from 'wdio-video-reporter'
-
 export const config = {
     suites: {
         regression: [
@@ -37,12 +35,6 @@ export const config = {
             disableWebdriverStepsReporting: true,
             disableWebdriverScreenshotsReporting: false
         }],
-
-        [Video, {
-            saveAllVideos: false,
-            videoRenderTimeout: 30000,
-            outputDir: './videos',
-        }]
     ],
 
     mochaOpts: {
