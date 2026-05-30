@@ -7,7 +7,7 @@ export const config = {
         '../test/specs/**/*.spec.js'
     ],
 
-    maxInstances: process.env.CI ? 1 : 2,
+    maxInstances: 1,
 
     capabilities: [
         {

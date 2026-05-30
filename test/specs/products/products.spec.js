@@ -48,7 +48,7 @@ describe('Voice AI agents', () => {
     })
 
     it('should play custom text audio completely', async () => {
-        await VoiceAiPage.setCustomText('Hello, agent.')
+        await VoiceAiPage.setCustomText('Hello, agent. Tell me something?')
 
         await VoiceAiPage.playAudio()
 

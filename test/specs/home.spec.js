@@ -5,6 +5,7 @@ describe('Home page', () => {
     beforeEach(async () => {
         await HomePage.open()
         await HomePage.expectPageIsDisplayed()
+        await HomePage.cookies.acceptCookies()
     })
 
     it('should display Agent Execution & Memory section info', async () => {

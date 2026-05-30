@@ -4,6 +4,7 @@ describe('Pricing - Global Numbers', () => {
     beforeEach(async () => {
         await NumbersPricingPage.open()
         await NumbersPricingPage.expectPageIsDisplayed()
+        await NumbersPricingPage.CookiesComponent.acceptCookies()
     })
 
     it('should display selected country and number pricing info', async () => {

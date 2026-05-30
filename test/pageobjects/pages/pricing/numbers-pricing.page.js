@@ -1,6 +1,10 @@
 import Page from '../page.js'
+import cookiesComponent from '../../components/cookies.component.js'
 
 class NumbersPricingPage extends Page {
+
+    CookiesComponent = cookiesComponent
+
     get pageTitle() {
         return $('//p[normalize-space()="Numbers pricing"]')
     }

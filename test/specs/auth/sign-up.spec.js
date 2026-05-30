@@ -1,5 +1,5 @@
 import SignUpPage from '../../pageobjects/pages/sign-up.page.js'
-import authData from '../../../data/auth.data.json' with { type: 'json' }
+import authData from '../../../data/auth.data.json' assert { type: 'json' }
 
 describe('Sign Up', () => {
     beforeEach(async () => {

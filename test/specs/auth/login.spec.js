@@ -1,5 +1,5 @@
 import LoginPage from '../../pageobjects/pages/login.page.js'
-import authData from '../../../data/auth.data.json' with { type: 'json' }
+import authData from '../../../data/auth.data.json' assert { type: 'json' }
 
 describe('Login', () => {
     beforeEach(async () => {
@@ -15,6 +15,8 @@ describe('Login', () => {
     })
 
     it('should switch theme mode', async () => {
+        await browser.pause(5000)
+
         await LoginPage.closeGooglePopupIfDisplayed()
 
         await LoginPage.expectThemeIsDisabled()
