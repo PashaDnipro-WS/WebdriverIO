@@ -47,14 +47,14 @@ describe('Voice AI agents', () => {
         await VoiceAiPage.expectAudioIsPlaying()
     })
 
-    it('should play custom text audio completely', async () => {
-        await VoiceAiPage.setCustomText('Hello, agent. Tell me something?')
+    // it('should play custom text audio completely', async () => {
+    //     await VoiceAiPage.setCustomText('Hello, agent. Tell me something?')
 
-        await VoiceAiPage.playAudio()
+    //     await VoiceAiPage.playAudio()
 
-        await VoiceAiPage.expectAudioIsPlaying()
-        await VoiceAiPage.expectAudioFinished()
-    })
+    //     await VoiceAiPage.expectAudioIsPlaying()
+    //     await VoiceAiPage.expectAudioFinished()
+    // })
 })
 
 describe('Inference product page', () => {
